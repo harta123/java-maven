@@ -33,4 +33,15 @@ node {
             app.push("latest")
         }
     }
+    
+    stage('send to another server') { 
+    	steps {
+//     withCredentials([sshUserPrivateKey(credentialsId: '8210a265-20a4-403d-8e08-d2f618f7403f', keyFileVariable: 'KEY',usernameVariable: 'userName')]) {
+        sh "ssh ubuntu@3.138.151.0 'sudo docker login https://image.mylab-siab.com -u rastacode090802 -p Damarwulan1&&sudo docker run --name=sukar -d -p 1337:8080 -t image.mylab-siab.com/learning/reaxjs-maven-jenkins'"
+        // sh "whoami"
+        // sh "docker login https://image.mylab-siab.com -u rastacode090802 -p Damarwulan1"
+        // sh"docker run --name=sukar -d -p 1337:3000 -t image.mylab-siab.com/learning/reaxjs-maven-jenkins"
+//         // sh "|id|whoami|docker login https://image.mylab-siab.com -u rastacode090802 -p Damarwulan1|docker run --name=rexasjs -d -p 1337:3000 -t image.mylab-siab.com/learning/reaxjs-maven-jenkins"
+//         sh "id"
+     }
 }
